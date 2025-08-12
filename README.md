@@ -89,7 +89,7 @@ showCurrencyBottomSheet(
   currencyService: service, // 👈 inject service here!
   onSelect: (currency) {}, // 👈 update state
   showFlag: true,
-  searchHint: 'Hello,
+  searchHint: 'Hello',
   showCurrencyName: true,
   showCurrencyCode: true,
   showSearchField: true,
