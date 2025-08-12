@@ -242,7 +242,7 @@ Although it is not used internally in the package, exposing a way to store and r
 | **Description** | Rectangular flag with customizable width and height.|
 | **Key Params**  | `currency`, `fit`, `width`, `height`, `placeholder`, `svgPictureBuilder` |
 | **Example**     | ```CurrencyAssetFlag(currency: eur, fit: BoxFit.cover, width: 48, height: 32)``` |
-| **Image**       | <img src="assets/flags_svg/eur.svg" width="48px" height="48px" />    |
+| **Image**       | <img src="https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/assets/flags_svg/eur.svg" width="48px" height="48px" />    |
 
 
 
@@ -253,7 +253,7 @@ Although it is not used internally in the package, exposing a way to store and r
 | **Description** | Circular flag with uniform size.                    |
 | **Key Params**  | `currency`, `fit`, `size`, `placeholder`, `svgPictureBuilder` |
 | **Example**     | ```CurrencyAssetFlagCircular(currency: eur, size: 48)``` |
-| **Image**       | <img src="assets/flags_svg/eur.svg" style="width: 48px; height: 48px; object-fit: cover; border-radius: 50%;"  alt="Circular Flag"  />        |
+| **Image**       | <img src="https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/assets/flags_svg/eur.svg" style="width: 48px; height: 48px; object-fit: cover; border-radius: 50%;"  alt="Circular Flag"  />        |
 
 
 
