@@ -16,14 +16,12 @@ and the Flutter guide for
 -->
 
 
-![Coverage](coverage_badge.svg?sanitize=true)
+![Coverage](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/coverage_badge.svg)
 [![pub package](https://img.shields.io/pub/v/currency_picker_plus.svg)](https://pub.dev/packages/currency_picker_plus)
 
 
-<div style="display:flex; gap:30px;">
-  <img src="example1.webp" width="250px" />
-  <img src="example2.webp" width="250px" />
-</div>
+| ![Example 1](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/example1.webp) | ![Example 2](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/example2.webp) |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
 
 
 ## Features
