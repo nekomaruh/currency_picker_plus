@@ -20,19 +20,16 @@ and the Flutter guide for
 [![pub package](https://img.shields.io/pub/v/currency_picker_plus.svg)](https://pub.dev/packages/currency_picker_plus)
 
 
-- Based on [currency_picker](https://pub.dev/packages/currency_picker) and 
-[currency_text_input_formatter](https://pub.dev/packages/currency_picker) packages.
-
-
-
 <div style="display:flex; gap:30px;">
   <img src="example1.webp" width="250px" />
   <img src="example2.webp" width="250px" />
 </div>
 
 
-
 ## Features
+
+Based on [currency_picker](https://pub.dev/packages/currency_picker) and 
+[currency_text_input_formatter](https://pub.dev/packages/currency_picker) packages.
 
 - 🚀 Supports 161+ global currencies (1.2MB) with crisp, scalable SVG flags.
 - 🌍 Built-in base locales for all default currencies
