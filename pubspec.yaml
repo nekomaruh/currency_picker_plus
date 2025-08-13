@@ -1,9 +1,20 @@
 name: currency_picker_plus
 description: Enhanced and customizable Flutter currency picker widget with extra features.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/nekomaruh/currency_picker_plus
 homepage: https://github.com/nekomaruh/currency_picker_plus
 license: MIT
+
+keywords:
+  - currency
+  - flutter
+  - money
+  - finance
+  - picker
+  - formatter
+  - currency_formatter
+  - currency_picker
+  - currency_picker_plus
 
 environment:
   sdk: ^3.8.1
