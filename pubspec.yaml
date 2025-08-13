@@ -5,6 +5,17 @@ repository: https://github.com/nekomaruh/currency_picker_plus
 homepage: https://github.com/nekomaruh/currency_picker_plus
 license: MIT
 
+keywords:
+  - currency
+  - flutter
+  - money
+  - finance
+  - picker
+  - formatter
+  - currency_formatter
+  - currency_picker
+  - currency_picker_plus
+
 environment:
   sdk: ^3.8.1
 
