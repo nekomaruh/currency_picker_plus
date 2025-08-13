@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-08-12 01:01:15</td>
+            <td class="headerValue">2025-08-13 15:39:28</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -65,18 +65,23 @@
 <span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC">           1 : CurrencyFormatter formatterFromCurrency({</span></span>
 <span id="L4"><span class="lineNum">       4</span>              :   required Currency currency,</span>
 <span id="L5"><span class="lineNum">       5</span>              :   bool showSymbol = false,</span>
-<span id="L6"><span class="lineNum">       6</span>              : }) {</span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">           1 :   return CurrencyFormatter.currency(</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           1 :     locale: currency.locale,</span></span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           1 :     symbol: currency.symbol,</span></span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 :     decimalDigits: currency.decimalDigits,</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           1 :     decimalSeparator: currency.decimalSeparator,</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :     thousandsSeparator: currency.thousandsSeparator,</span></span>
-<span id="L13"><span class="lineNum">      13</span>              :     showSymbol: showSymbol,</span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :     symbolOnLeft: currency.symbolOnLeft,</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :     showSymbolSpace: currency.spaceBetweenAmountAndSymbol,</span></span>
-<span id="L16"><span class="lineNum">      16</span>              :   );</span>
-<span id="L17"><span class="lineNum">      17</span>              : }</span>
+<span id="L6"><span class="lineNum">       6</span>              :   int? maxDecimals,</span>
+<span id="L7"><span class="lineNum">       7</span>              : }) {</span>
+<span id="L8"><span class="lineNum">       8</span>              :   int decimals = maxDecimals != null</span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           2 :       ? currency.decimalDigits.clamp(0, maxDecimals)</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 :       : currency.decimalDigits;</span></span>
+<span id="L11"><span class="lineNum">      11</span>              : </span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :   return CurrencyFormatter.currency(</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :     locale: currency.locale,</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :     symbol: currency.symbol,</span></span>
+<span id="L15"><span class="lineNum">      15</span>              :     decimalDigits: decimals,</span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           1 :     decimalSeparator: currency.decimalSeparator,</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :     thousandsSeparator: currency.thousandsSeparator,</span></span>
+<span id="L18"><span class="lineNum">      18</span>              :     showSymbol: showSymbol,</span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :     symbolOnLeft: currency.symbolOnLeft,</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :     showSymbolSpace: currency.spaceBetweenAmountAndSymbol,</span></span>
+<span id="L21"><span class="lineNum">      21</span>              :   );</span>
+<span id="L22"><span class="lineNum">      22</span>              : }</span>
         </pre>
               </td>
             </tr>

@@ -17,5 +17,14 @@ void main() {
       final formatter = formatterFromCurrency(currency: clpMock);
       expect(formatter.showSymbol, false);
     });
+
+    test('uses showSymbol false by default', () {
+      final formatter = formatterFromCurrency(
+        currency: usdMock,
+        maxDecimals: 1,
+      );
+      final formatted = formatter.format.format(1);
+      expect(formatted, '\$1.0');
+    });
   });
 }
