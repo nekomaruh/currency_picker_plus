@@ -270,7 +270,14 @@ Although it is not used internally in the package, exposing a way to store and r
 
 ### Currency Formatter
 
-See the example file for details on how to use it
+Simply create a formatter using the helper function:
+
+```dart
+final Currency currency;
+final formatter = formatterFromCurrency(currency);
+```
+
+Or see the example file for details on how to use it:
 
 ```dart
 final formatter = CurrencyFormatter.currency(

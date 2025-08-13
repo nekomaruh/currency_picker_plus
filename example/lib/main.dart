@@ -184,14 +184,18 @@ class _CurrencyInputState extends State<CurrencyInput> {
   @override
   void didUpdateWidget(covariant CurrencyInput oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.currency != widget.currency) {
-      final oldUnformatted = _formatter.getUnformattedValue();
-      _createFormatter();
-      final newFormatted = _formatter.formatString(oldUnformatted);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _controller.value = TextEditingValue(text: newFormatted);
-      });
-    }
+
+    if (oldWidget.currency == widget.currency) return;
+
+    final oldUnformatted = _formatter.getUnformattedValue();
+    _createFormatter();
+    final newText = oldUnformatted == "0"
+        ? ""
+        : _formatter.formatString(oldUnformatted);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _controller.value = TextEditingValue(text: newText);
+    });
   }
 
   @override

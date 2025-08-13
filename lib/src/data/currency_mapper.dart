@@ -14,7 +14,7 @@ class CurrencyMapper {
       thousandsSeparator: json['thousands_separator'],
       symbolOnLeft: json['symbol_on_left'],
       spaceBetweenAmountAndSymbol: json['space_between_amount_and_symbol'],
-      locale: json['locale']
+      locale: json['locale'],
     );
   }
 
@@ -31,7 +31,7 @@ class CurrencyMapper {
       'thousands_separator': currency.thousandsSeparator,
       'symbol_on_left': currency.symbolOnLeft,
       'space_between_amount_and_symbol': currency.spaceBetweenAmountAndSymbol,
-      'locale': currency.locale
+      'locale': currency.locale,
     };
   }
 }

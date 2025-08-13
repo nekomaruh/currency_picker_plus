@@ -56,7 +56,7 @@ void main() {
           thousandsSeparator: '',
           locale: '',
         );
-        expect(currency.emptyPlaceholder(showSymbol: true), '\$ 0.00');
+        expect(currency.emptyPlaceholder(showSymbol: true), '\$\u00A00.00');
       },
     );
 
@@ -95,7 +95,7 @@ void main() {
       );
       expect(
         currency.emptyPlaceholder(showSymbol: true, forceSymbolSpace: true),
-        '0,00 \$',
+        '0,00\u00A0\$',
       );
     });
 
@@ -115,6 +115,64 @@ void main() {
         locale: '',
       );
       expect(currency.emptyPlaceholder(showSymbol: true), '\$0');
+    });
+
+    test('decimalDigits less than maxDecimals stays the same', () {
+      final currency = Currency(
+        symbol: '\$',
+        symbolOnLeft: true,
+        spaceBetweenAmountAndSymbol: false,
+        decimalSeparator: ',',
+        decimalDigits: 2,
+        code: '',
+        name: '',
+        flag: '',
+        number: 0,
+        namePlural: '',
+        thousandsSeparator: '',
+        locale: '',
+      );
+      final placeholder = currency.emptyPlaceholder(maxDecimals: 3);
+      expect(placeholder, '0,00');
+    });
+
+    test('decimalDigits greater than maxDecimals is clamped', () {
+      final currency = Currency(
+        symbol: '\$',
+        symbolOnLeft: true,
+        spaceBetweenAmountAndSymbol: false,
+        decimalSeparator: ',',
+        decimalDigits: 2,
+        code: '',
+        name: '',
+        flag: '',
+        number: 0,
+        namePlural: '',
+        thousandsSeparator: '',
+        locale: '',
+      );
+      final placeholder = currency.emptyPlaceholder(maxDecimals: 2);
+      expect(placeholder, '0,00');
+    });
+
+    test('maxDecimals null uses original decimalDigits', () {
+      final currency = Currency(
+        symbol: '\$',
+        symbolOnLeft: true,
+        spaceBetweenAmountAndSymbol: false,
+        decimalSeparator: ',',
+        decimalDigits: 3,
+        code: '',
+        name: '',
+        flag: '',
+        number: 0,
+        namePlural: '',
+        thousandsSeparator: '',
+        locale: '',
+      );
+
+      final placeholder = currency.emptyPlaceholder(maxDecimals: null);
+      expect(placeholder, '0,000');
     });
   });
 }
