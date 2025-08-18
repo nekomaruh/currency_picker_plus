@@ -3,11 +3,10 @@ import 'currency.dart';
 
 class CurrencyService {
   CurrencyService._()
-      : _currencies = currencies,
-        _byCode = {
-          for (var currency in currencies)
-            currency.code.toUpperCase(): currency,
-        };
+    : _currencies = currencies,
+      _byCode = {
+        for (var currency in currencies) currency.code.toUpperCase(): currency,
+      };
 
   static final CurrencyService instance = CurrencyService._();
 

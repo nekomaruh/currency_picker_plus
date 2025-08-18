@@ -17,7 +17,8 @@ and the Flutter guide for
 
 
 ![Coverage](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/coverage_badge.svg)
-[![pub package](https://img.shields.io/pub/v/currency_picker_plus.svg)](https://pub.dev/packages/currency_picker_plus)
+[![Pub Package](https://img.shields.io/pub/v/currency_picker_plus.svg)](https://pub.dev/packages/currency_picker_plus)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
 | ![Example 1](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/example1.webp) | ![Example 2](https://raw.githubusercontent.com/nekomaruh/currency_picker_plus/main/example2.webp) |
@@ -27,7 +28,7 @@ and the Flutter guide for
 ## Features
 
 Based on [currency_picker](https://pub.dev/packages/currency_picker) and 
-[currency_text_input_formatter](https://pub.dev/packages/currency_picker) packages.
+[currency_text_input_formatter](https://pub.dev/packages/currency_text_input_formatter) packages.
 
 - 🚀 Supports 161+ global currencies (1.2MB) with crisp, scalable SVG flags.
 - 🌍 Built-in base locales for all default currencies
@@ -220,9 +221,12 @@ final usd = Currency(
 - `currency.flagEmoji`  
   Returns the emoji flag symbol (e.g., "US" → 🇺🇸).
 
-- `currency.emptyPlaceholder(showSymbol, forceSymbolSpace)`  
+- `currency.emptyPlaceholder(showSymbol, forceSymbolSpace, maxDecimals?)`  
   Returns a placeholder widget for input fields.
-
+  
+- `currency.format(rawText, showSymbol, forceSymbolSpace, maxDecimals?)`  
+  Transform an unformatted String. Ex: "3832.83" returns "$3.832,83"
+  
 ### Mappers
 
 Although it is not used internally in the package, exposing a way to store and retrieve data can be useful.

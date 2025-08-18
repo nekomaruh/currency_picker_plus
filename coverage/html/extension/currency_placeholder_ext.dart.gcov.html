@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-08-13 15:39:28</td>
+            <td class="headerValue">2025-08-18 12:06:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -60,7 +60,7 @@
               <td>
 <pre class="sourceHeading">            Line data    Source code</pre>
 <pre class="source">
-<span id="L1"><span class="lineNum">       1</span>              : import '../../currency_picker_plus.dart';</span>
+<span id="L1"><span class="lineNum">       1</span>              : import '../data/currency.dart';</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
 <span id="L3"><span class="lineNum">       3</span>              : extension CurrencyPlaceholder on Currency {</span>
 <span id="L4"><span class="lineNum">       4</span>              :   /// Generates a placeholder string like &quot;0.00&quot; or &quot;€ 0,00&quot; based on the currency configuration.</span>
@@ -90,15 +90,17 @@
 <span id="L28"><span class="lineNum">      28</span>              :       return amount;</span>
 <span id="L29"><span class="lineNum">      29</span>              :     }</span>
 <span id="L30"><span class="lineNum">      30</span>              : </span>
-<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :     final space = (forceSymbolSpace || spaceBetweenAmountAndSymbol) ? '\u00A0' : '';</span></span>
-<span id="L32"><span class="lineNum">      32</span>              : </span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           1 :     if (symbolOnLeft) {</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           2 :       return '$symbol$space$amount';</span></span>
-<span id="L35"><span class="lineNum">      35</span>              :     } else {</span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           2 :       return '$amount$space$symbol';</span></span>
-<span id="L37"><span class="lineNum">      37</span>              :     }</span>
-<span id="L38"><span class="lineNum">      38</span>              :   }</span>
-<span id="L39"><span class="lineNum">      39</span>              : }</span>
+<span id="L31"><span class="lineNum">      31</span> <span class="tlaGNC">           1 :     final space = (forceSymbolSpace || spaceBetweenAmountAndSymbol)</span></span>
+<span id="L32"><span class="lineNum">      32</span>              :         ? '\u00A0'</span>
+<span id="L33"><span class="lineNum">      33</span>              :         : '';</span>
+<span id="L34"><span class="lineNum">      34</span>              : </span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :     if (symbolOnLeft) {</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           2 :       return '$symbol$space$amount';</span></span>
+<span id="L37"><span class="lineNum">      37</span>              :     } else {</span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           2 :       return '$amount$space$symbol';</span></span>
+<span id="L39"><span class="lineNum">      39</span>              :     }</span>
+<span id="L40"><span class="lineNum">      40</span>              :   }</span>
+<span id="L41"><span class="lineNum">      41</span>              : }</span>
         </pre>
               </td>
             </tr>

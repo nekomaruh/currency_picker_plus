@@ -1,4 +1,4 @@
-import '../../currency_picker_plus.dart';
+import '../data/currency.dart';
 
 extension CurrencyFlagAsset on Currency {
   String get flagAsset {

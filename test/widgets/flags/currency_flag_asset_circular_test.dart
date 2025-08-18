@@ -6,7 +6,6 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../mock/currency_model_mock.dart';
 
 void main() {
-
   testWidgets('CurrencyAssetFlagCircular shows SVG with correct dimensions', (
     tester,
   ) async {

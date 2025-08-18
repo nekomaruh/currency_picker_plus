@@ -1,3 +1,6 @@
+# Format files
+dart format .
+
 # Run tests
 flutter test --coverage
 

@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">5</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-08-13 15:39:28</td>
+            <td class="headerValue">2025-08-18 12:06:10</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -68,20 +68,13 @@
 <span id="L6"><span class="lineNum">       6</span>              :   final Currency currency;</span>
 <span id="L7"><span class="lineNum">       7</span>              :   final double size;</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
-<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           1 :   const CurrencyEmojiFlag({</span></span>
-<span id="L10"><span class="lineNum">      10</span>              :     super.key,</span>
-<span id="L11"><span class="lineNum">      11</span>              :     required this.currency,</span>
-<span id="L12"><span class="lineNum">      12</span>              :     this.size = 40</span>
-<span id="L13"><span class="lineNum">      13</span>              :   });</span>
-<span id="L14"><span class="lineNum">      14</span>              : </span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :   @override</span></span>
-<span id="L16"><span class="lineNum">      16</span>              :   Widget build(BuildContext context) {</span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           1 :     return Text(</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           2 :       currency.flagEmoji,</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           2 :       style: TextStyle(fontSize: size),</span></span>
-<span id="L20"><span class="lineNum">      20</span>              :     );</span>
-<span id="L21"><span class="lineNum">      21</span>              :   }</span>
-<span id="L22"><span class="lineNum">      22</span>              : }</span>
+<span id="L9"><span class="lineNum">       9</span> <span class="tlaGNC">           1 :   const CurrencyEmojiFlag({super.key, required this.currency, this.size = 40});</span></span>
+<span id="L10"><span class="lineNum">      10</span>              : </span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">           1 :   @override</span></span>
+<span id="L12"><span class="lineNum">      12</span>              :   Widget build(BuildContext context) {</span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           5 :     return Text(currency.flagEmoji, style: TextStyle(fontSize: size));</span></span>
+<span id="L14"><span class="lineNum">      14</span>              :   }</span>
+<span id="L15"><span class="lineNum">      15</span>              : }</span>
         </pre>
               </td>
             </tr>
