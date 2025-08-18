@@ -1,7 +1,6 @@
 import 'package:currency_picker_plus/currency_picker_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
   group('CurrencyService', () {
     final service = CurrencyService.instance;

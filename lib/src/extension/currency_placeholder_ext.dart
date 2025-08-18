@@ -1,4 +1,4 @@
-import '../../currency_picker_plus.dart';
+import '../data/currency.dart';
 
 extension CurrencyPlaceholder on Currency {
   /// Generates a placeholder string like "0.00" or "€ 0,00" based on the currency configuration.
@@ -28,7 +28,9 @@ extension CurrencyPlaceholder on Currency {
       return amount;
     }
 
-    final space = (forceSymbolSpace || spaceBetweenAmountAndSymbol) ? '\u00A0' : '';
+    final space = (forceSymbolSpace || spaceBetweenAmountAndSymbol)
+        ? '\u00A0'
+        : '';
 
     if (symbolOnLeft) {
       return '$symbol$space$amount';
