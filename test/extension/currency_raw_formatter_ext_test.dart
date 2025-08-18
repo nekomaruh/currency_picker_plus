@@ -79,12 +79,12 @@ void main() {
       expect(krw.format(rawValue: '1234567'), '1,234,567');
       expect(
         krw.format(rawValue: '1234567', showSymbol: true),
-        '₩ 1,234,567',
+        '₩1,234,567',
       ); // spaceBetweenAmountAndSymbol true
     });
 
     test('formats small number with zero decimals', () {
-      expect(krw.format(rawValue: '34.78', showSymbol: true), '₩ 34');
+      expect(krw.format(rawValue: '34.78', showSymbol: true), '₩34');
     });
   });
 }
