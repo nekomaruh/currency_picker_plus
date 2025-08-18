@@ -10,8 +10,8 @@ topics:
   - currency
   - picker
   - money
-  - currency_formatter
-  - currency_picker
+  - currency-formatter
+  - currency-picker
 
 environment:
   sdk: ^3.8.1
