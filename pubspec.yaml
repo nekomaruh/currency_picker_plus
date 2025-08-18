@@ -8,11 +8,10 @@ license: MIT
 
 topics:
   - currency
+  - picker
   - money
-  - finance
   - currency_formatter
   - currency_picker
-  - currency_picker_plus
 
 environment:
   sdk: ^3.8.1
