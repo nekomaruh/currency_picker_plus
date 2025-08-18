@@ -1,3 +1,6 @@
+## 1.1.1
+- Export `CurrencyRawFormatter` extension from package.
+- 
 ## 1.1.0
 - Add `CurrencyRawFormatter` extension to format raw strings.
 
