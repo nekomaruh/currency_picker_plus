@@ -1,7 +1,6 @@
 import 'package:currency_picker_plus/currency_picker_plus.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
   group('CurrencyMapper', () {
     final jsonExample = {
@@ -42,7 +41,9 @@ void main() {
     });
 
     test('toJson(fromJson(json)) is symmetric', () {
-      final jsonRoundTrip = CurrencyMapper.toJson(CurrencyMapper.fromJson(jsonExample));
+      final jsonRoundTrip = CurrencyMapper.toJson(
+        CurrencyMapper.fromJson(jsonExample),
+      );
       expect(jsonRoundTrip, jsonExample);
     });
   });

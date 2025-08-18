@@ -1,4 +1,4 @@
-import '../../currency_picker_plus.dart';
+import '../data/currency.dart';
 
 // 0x41 is Letter A
 // 0x1F1E6 is Regional Indicator Symbol Letter A

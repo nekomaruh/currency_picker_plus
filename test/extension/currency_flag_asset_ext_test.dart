@@ -5,7 +5,6 @@ import '../mock/currency_model_mock.dart';
 
 void main() {
   group('CurrencyFlagAsset', () {
-
     test('flagAsset returns the correct path', () {
       expect(usdMock.flagAsset, 'assets/flags_svg/usd.svg');
       expect(brlMock.flagAsset, 'assets/flags_svg/brl.svg');

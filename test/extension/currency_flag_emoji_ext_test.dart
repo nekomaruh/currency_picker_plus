@@ -5,7 +5,6 @@ import '../mock/currency_model_mock.dart';
 
 void main() {
   group('CurrencyFlagEmoji', () {
-
     test('flagEmoji returns the correct emoji for US', () {
       expect(usdMock.flagEmoji, '🇺🇸');
     });
