@@ -16,6 +16,7 @@ export 'src/widgets/layout/currency_modal_content.dart';
 export 'src/extension/currency_placeholder_ext.dart';
 export 'src/extension/currency_flag_asset_ext.dart';
 export 'src/extension/currency_flag_emoji_ext.dart';
+export 'src/extension/currency_raw_formatter_ext.dart';
 
 export 'src/formatter/formatter_from_currency.dart';
 export 'src/formatter/currency_formatter.dart';
