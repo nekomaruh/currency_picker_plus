@@ -1778,7 +1778,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "tg-TJ",
+    locale: "en-TJ",
   ),
   Currency(
     code: "TMT",
