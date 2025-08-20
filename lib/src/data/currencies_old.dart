@@ -234,4 +234,22 @@ final List<Currency> currenciesOld = const [
     symbolOnLeft: true,
     locale: "en-ZW",
   ),
+
+  /// VEF (Venezuela Bolívar Fuerte): Former currency of Venezuela.
+  /// Status: No longer official.
+  /// Replaced by: Venezuelan Bolívar Soberano (VES) in 2018, which is the current official currency.
+  Currency(
+    code: "VEF",
+    name: "Venezuela Bolívar",
+    symbol: "Bs",
+    flag: "VE",
+    decimalDigits: 2,
+    number: 937,
+    namePlural: "Venezuelan bolívars",
+    thousandsSeparator: ".",
+    decimalSeparator: ",",
+    spaceBetweenAmountAndSymbol: true,
+    symbolOnLeft: true,
+    locale: "es-VE",
+  ),
 ];
