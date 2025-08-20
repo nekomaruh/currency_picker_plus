@@ -2133,7 +2133,7 @@ final List<Currency> currencies = const [
     thousandsSeparator: ",",
     symbolOnLeft: true,
     spaceBetweenAmountAndSymbol: false,
-    locale: "sm-WS",
+    locale: "en-WS",
   ),
 
   Currency(
