@@ -331,4 +331,19 @@ void main() {
       expect(formatter.getFormattedValue(), '');
     },
   );
+
+  test('formatEditUpdate deletes substring in newText', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+    );
+
+    final oldValue = const TextEditingValue(text: '1234\$');
+    final newValue = const TextEditingValue(text: '1234');
+
+    formatter.formatEditUpdate(oldValue, newValue);
+  });
 }
