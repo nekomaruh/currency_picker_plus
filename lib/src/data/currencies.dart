@@ -1512,7 +1512,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: true,
-    locale: "so-SO",
+    locale: "en-US",
   ),
   Currency(
     code: "LKR",
