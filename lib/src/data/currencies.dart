@@ -1231,7 +1231,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: false,
-    locale: "dv-MV",
+    locale: "en-MV",
   ),
   Currency(
     code: "MUR",
