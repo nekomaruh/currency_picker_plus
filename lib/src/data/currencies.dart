@@ -1470,7 +1470,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: true,
-    locale: "rw-RW",
+    locale: "fr-RW",
   ),
   Currency(
     code: "RSD",
