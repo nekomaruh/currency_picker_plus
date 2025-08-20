@@ -1792,9 +1792,8 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: false,
-    locale: "tk-TM",
+    locale: "en-TM",
   ),
-
   Currency(
     code: "AWG",
     name: "Aruban Florin",
