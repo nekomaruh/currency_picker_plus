@@ -2253,7 +2253,7 @@ final List<Currency> currencies = const [
     thousandsSeparator: ",",
     symbolOnLeft: true,
     spaceBetweenAmountAndSymbol: false,
-    locale: "bi-VU",
+    locale: "en-VU",
   ),
 
   Currency(
