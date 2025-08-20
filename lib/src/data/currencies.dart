@@ -1582,7 +1582,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "to-TO",
+    locale: "en-TO",
   ),
   Currency(
     code: "TTD",
