@@ -698,7 +698,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "dz-BT",
+    locale: "en_IN",
   ),
   Currency(
     code: "BOB",
