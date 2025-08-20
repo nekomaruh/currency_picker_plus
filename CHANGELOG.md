@@ -1,6 +1,7 @@
 ## 1.1.2
 - Fix locales for `BTN`, `BIF`, `MVR`, `RWF`, `SOS`, `TOP`, `TJS`, `TMT`, `WST`, `VUV`
 - Remove obsolete `VEF` and update `VES` symbol
+- Fix negative symbol in `CurrencyRawFormatter` extension
 
 ## 1.1.1
 - Export `CurrencyRawFormatter` extension from package.
