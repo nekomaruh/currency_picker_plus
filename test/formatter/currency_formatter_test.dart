@@ -231,4 +231,104 @@ void main() {
     expect(result.text.endsWith('\$'), true);
     expect(result.text.contains('123.45'), true);
   });
+
+  test(
+    'CurrencyFormatter.currency con turnOffGrouping disables separators',
+    () {
+      final formatter = CurrencyFormatter.currency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        thousandsSeparator: "",
+        turnOffGrouping: true,
+      );
+
+      final oldValue = TextEditingValue(text: '');
+      final newValue = TextEditingValue(text: '1234567');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text.contains(','), false);
+      expect(result.text, '12345.67');
+    },
+  );
+
+  test(
+    'CurrencyFormatter.simpleCurrency con turnOffGrouping disables separators',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        thousandsSeparator: "",
+        turnOffGrouping: true,
+      );
+
+      final oldValue = TextEditingValue(text: '');
+      final newValue = TextEditingValue(text: '1234567');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text.contains(','), false);
+      expect(result.text, '12345.67');
+    },
+  );
+
+  test(
+    '_parseStrToDecimal return Decimal.parse when decimalDigits == 0 with separators',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 0,
+        showSymbol: false,
+      );
+
+      final result = formatter.formatString("12345");
+
+      expect(result, '12,345');
+      expect(formatter.getUnformattedValueDecimal(), Decimal.parse('12345'));
+    },
+  );
+
+  test('_isMoreThanMaxValue return true when value exceeds maxValue', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: false,
+      maxValue: Decimal.parse('1000'),
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '200000');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text, oldValue.text);
+  });
+
+  test(
+    'formatEditUpdate with InputDirection.left and empty text reset values',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        inputDirection: InputDirection.left,
+      );
+
+      final oldValue = TextEditingValue(text: '123');
+      final newValue = TextEditingValue(text: '');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text, '');
+      expect(formatter.getUnformattedValueDecimal(), Decimal.zero);
+      expect(formatter.getFormattedValue(), '');
+    },
+  );
 }
