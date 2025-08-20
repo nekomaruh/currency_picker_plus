@@ -193,4 +193,42 @@ void main() {
     expect(nf.currencySymbol, '\$');
     expect(nf.decimalDigits, 2);
   });
+
+  test('CurrencyFormatter sets symbol at right side', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '12345');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text.endsWith('\$'), true);
+    expect(result.text.contains('123.45'), true);
+  });
+
+  test('CurrencyFormatter negative with symbol at right side', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+      enableNegative: true,
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '-12345');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text.startsWith('-'), true);
+    expect(result.text.endsWith('\$'), true);
+    expect(result.text.contains('123.45'), true);
+  });
 }
