@@ -2,6 +2,8 @@ import 'package:currency_picker_plus/src/extension/currency_raw_formatter_ext.da
 import 'package:flutter_test/flutter_test.dart';
 import 'package:currency_picker_plus/src/data/currency.dart';
 
+import '../mock/currency_model_mock.dart';
+
 void main() {
   group('CurrencyRawFormatter.format', () {
     final usd = Currency(
@@ -52,7 +54,7 @@ void main() {
     test('formats negative number with symbol', () {
       expect(
         usd.format(rawValue: '-1234567.89', showSymbol: true),
-        '\$-1,234,567.89',
+        '-\$1,234,567.89',
       );
     });
 
@@ -85,6 +87,25 @@ void main() {
 
     test('formats small number with zero decimals', () {
       expect(krw.format(rawValue: '34.78', showSymbol: true), '₩34');
+    });
+
+    test('negative value with symbol on right', () {
+      final result = eurMock.format(rawValue: '-1234.56', showSymbol: true);
+      expect(result, '-1.234,56\u00A0€');
+    });
+
+    test('positive value with symbol on right', () {
+      final result = eurMock.format(rawValue: '1234.56', showSymbol: true);
+      expect(result, '1.234,56\u00A0€');
+    });
+
+    test('negative value with forced space', () {
+      final result = usd.format(
+        rawValue: '-1234.56',
+        showSymbol: true,
+        forceSymbolSpace: true,
+      );
+      expect(result, '-\$\u00A01,234.56');
     });
   });
 }
