@@ -346,4 +346,38 @@ void main() {
 
     formatter.formatEditUpdate(oldValue, newValue);
   });
+
+  test(
+    'formatEditUpdate returns empty text or "-" when newText is 0, 00 or 000',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        enableNegative: true,
+      );
+
+      // Case 1: newText empty
+      final oldValue1 = const TextEditingValue(text: '123');
+      final newValue1 = const TextEditingValue(text: '');
+      final result1 = formatter.formatEditUpdate(oldValue1, newValue1);
+      expect(result1.text, '');
+      expect(result1.selection.baseOffset, 0);
+
+      // Case 2: newText = "00"
+      final oldValue2 = const TextEditingValue(text: '123');
+      final newValue2 = const TextEditingValue(text: '00');
+      final result2 = formatter.formatEditUpdate(oldValue2, newValue2);
+      expect(result2.text, '');
+      expect(result2.selection.baseOffset, 0);
+
+      // Case 3: newText = "000" and negative
+      final oldValue3 = const TextEditingValue(text: '123');
+      final newValue3 = const TextEditingValue(text: '-000');
+      final result3 = formatter.formatEditUpdate(oldValue3, newValue3);
+      expect(result3.text, '-');
+      expect(result3.selection.baseOffset, 1);
+    },
+  );
 }
