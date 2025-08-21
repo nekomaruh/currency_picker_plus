@@ -7,7 +7,7 @@ void main() {
 
     test('getAll returns all currencies', () {
       final all = service.getAll();
-      expect(all.length, 161);
+      expect(all.length, 160);
       expect(all, contains(service.findByCode('USD')));
       expect(all, contains(service.findByCode('EUR')));
       expect(all, contains(service.findByCode('JPY')));

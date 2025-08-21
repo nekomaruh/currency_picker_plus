@@ -64,19 +64,25 @@ extension CurrencyRawFormatter on Currency {
         ? '$integerPart$decimalSeparator$decimalPart'
         : integerPart;
 
-    // Re-add negative sign if needed
-    if (isNegative) {
-      formatted = '-$formatted';
-    }
-
-    // Add currency symbol if requested
+    // Add currency symbol if requested, applying negative sign **before the symbol**
     if (showSymbol) {
       final space = (forceSymbolSpace || spaceBetweenAmountAndSymbol)
           ? '\u00A0'
           : '';
-      formatted = symbolOnLeft
-          ? '$symbol$space$formatted'
-          : '$formatted$space$symbol';
+      if (symbolOnLeft) {
+        formatted = isNegative
+            ? '-$symbol$space$formatted'
+            : '$symbol$space$formatted';
+      } else {
+        formatted = isNegative
+            ? '-$formatted$space$symbol'
+            : '$formatted$space$symbol';
+      }
+    } else {
+      // Re-add negative sign if symbol not shown
+      if (isNegative) {
+        formatted = '-$formatted';
+      }
     }
 
     return formatted;

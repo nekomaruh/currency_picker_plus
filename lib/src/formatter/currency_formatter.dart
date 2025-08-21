@@ -328,6 +328,7 @@ class CurrencyFormatter extends TextInputFormatter {
   }
 
   String getUnformattedValue() {
+    if (_newNum == Decimal.zero) return "0";
     return (_isNegative ? '-' : '') + _newNum.toString();
   }
 
@@ -336,16 +337,13 @@ class CurrencyFormatter extends TextInputFormatter {
   }
 
   String formatString(String value) {
-    if (enableNegative) {
-      _isNegative = value.startsWith('-');
-    } else {
-      _isNegative = false;
-    }
-
+    _isNegative = enableNegative ? value.startsWith('-') : false;
     final String newText = value.replaceAll(RegExp('[^0-9]'), '');
     _formatter(newText);
     return _newString;
   }
+
+  bool get isNegative => _isNegative;
 }
 
 String formatDecimalStringWithSeparators(

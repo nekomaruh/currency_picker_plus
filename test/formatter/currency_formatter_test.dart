@@ -193,4 +193,258 @@ void main() {
     expect(nf.currencySymbol, '\$');
     expect(nf.decimalDigits, 2);
   });
+
+  test('CurrencyFormatter sets symbol at right side', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '12345');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text.endsWith('\$'), true);
+    expect(result.text.contains('123.45'), true);
+  });
+
+  test('CurrencyFormatter negative with symbol at right side', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+      enableNegative: true,
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '-12345');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text.startsWith('-'), true);
+    expect(result.text.endsWith('\$'), true);
+    expect(result.text.contains('123.45'), true);
+  });
+
+  test(
+    'CurrencyFormatter.currency con turnOffGrouping disables separators',
+    () {
+      final formatter = CurrencyFormatter.currency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        thousandsSeparator: "",
+        turnOffGrouping: true,
+      );
+
+      final oldValue = TextEditingValue(text: '');
+      final newValue = TextEditingValue(text: '1234567');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text.contains(','), false);
+      expect(result.text, '12345.67');
+    },
+  );
+
+  test(
+    'CurrencyFormatter.simpleCurrency con turnOffGrouping disables separators',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        thousandsSeparator: "",
+        turnOffGrouping: true,
+      );
+
+      final oldValue = TextEditingValue(text: '');
+      final newValue = TextEditingValue(text: '1234567');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text.contains(','), false);
+      expect(result.text, '12345.67');
+    },
+  );
+
+  test(
+    '_parseStrToDecimal return Decimal.parse when decimalDigits == 0 with separators',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 0,
+        showSymbol: false,
+      );
+
+      final result = formatter.formatString("12345");
+
+      expect(result, '12,345');
+      expect(formatter.getUnformattedValueDecimal(), Decimal.parse('12345'));
+    },
+  );
+
+  test('_isMoreThanMaxValue return true when value exceeds maxValue', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: false,
+      maxValue: Decimal.parse('1000'),
+    );
+
+    final oldValue = TextEditingValue(text: '');
+    final newValue = TextEditingValue(text: '200000');
+
+    final result = formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(result.text, oldValue.text);
+  });
+
+  test(
+    'formatEditUpdate with InputDirection.left and empty text reset values',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        inputDirection: InputDirection.left,
+      );
+
+      final oldValue = TextEditingValue(text: '123');
+      final newValue = TextEditingValue(text: '');
+
+      final result = formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(result.text, '');
+      expect(formatter.getUnformattedValueDecimal(), Decimal.zero);
+      expect(formatter.getFormattedValue(), '');
+    },
+  );
+
+  test('formatEditUpdate deletes substring in newText', () {
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: true,
+      symbolOnLeft: false,
+    );
+
+    final oldValue = const TextEditingValue(text: '1234\$');
+    final newValue = const TextEditingValue(text: '1234');
+
+    formatter.formatEditUpdate(oldValue, newValue);
+  });
+
+  test(
+    'formatEditUpdate returns empty text or "-" when newText is 0, 00 or 000',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        enableNegative: true,
+      );
+
+      // Case 1: newText empty
+      final oldValue1 = const TextEditingValue(text: '123');
+      final newValue1 = const TextEditingValue(text: '');
+      final result1 = formatter.formatEditUpdate(oldValue1, newValue1);
+      expect(result1.text, '');
+      expect(result1.selection.baseOffset, 0);
+
+      // Case 2: newText = "00"
+      final oldValue2 = const TextEditingValue(text: '123');
+      final newValue2 = const TextEditingValue(text: '00');
+      final result2 = formatter.formatEditUpdate(oldValue2, newValue2);
+      expect(result2.text, '');
+      expect(result2.selection.baseOffset, 0);
+
+      // Case 3: newText = "000" and negative
+      final oldValue3 = const TextEditingValue(text: '123');
+      final newValue3 = const TextEditingValue(text: '-000');
+      final result3 = formatter.formatEditUpdate(oldValue3, newValue3);
+      expect(result3.text, '-');
+      expect(result3.selection.baseOffset, 1);
+    },
+  );
+
+  test('formatEditUpdate calls onChange callback with _newString', () {
+    String? changedValue;
+
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: false,
+      onChange: (value) {
+        changedValue = value;
+      },
+    );
+
+    final oldValue = const TextEditingValue(text: '123');
+    final newValue = const TextEditingValue(text: '456');
+
+    formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(changedValue, isNotNull);
+    expect(changedValue, isA<String>());
+    expect(changedValue, contains('4.56'));
+  });
+
+  group('formatDecimalStringWithSeparators', () {
+    test('truncates decimal part if longer than decimalDigits', () {
+      final result = formatDecimalStringWithSeparators(
+        '123.4567',
+        decimalDigits: 2,
+        decimalSeparator: '.',
+        thousandSeparator: ',',
+      );
+
+      expect(result, '123.45');
+    });
+
+    test('pads decimal part if shorter than decimalDigits', () {
+      final result = formatDecimalStringWithSeparators(
+        '123.4',
+        decimalDigits: 3,
+        decimalSeparator: '.',
+        thousandSeparator: ',',
+      );
+
+      expect(result, '123.400');
+    });
+  });
+
+  test(
+    'formatEditUpdate sets _isNegative = false when enableNegative is false',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        enableNegative: false,
+      );
+
+      final oldValue = const TextEditingValue(text: '1');
+      final newValue = const TextEditingValue(text: '12');
+
+      formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(formatter.isNegative, false);
+    },
+  );
 }
