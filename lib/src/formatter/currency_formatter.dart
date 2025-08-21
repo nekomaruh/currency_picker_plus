@@ -328,6 +328,7 @@ class CurrencyFormatter extends TextInputFormatter {
   }
 
   String getUnformattedValue() {
+    if (_newNum == Decimal.zero) return "0";
     return (_isNegative ? '-' : '') + _newNum.toString();
   }
 
