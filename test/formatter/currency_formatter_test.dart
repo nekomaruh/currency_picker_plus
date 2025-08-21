@@ -427,4 +427,24 @@ void main() {
       expect(result, '123.400');
     });
   });
+
+  test(
+    'formatEditUpdate sets _isNegative = false when enableNegative is false',
+    () {
+      final formatter = CurrencyFormatter.simpleCurrency(
+        locale: 'en_US',
+        name: 'USD',
+        decimalDigits: 2,
+        showSymbol: false,
+        enableNegative: false,
+      );
+
+      final oldValue = const TextEditingValue(text: '1');
+      final newValue = const TextEditingValue(text: '12');
+
+      formatter.formatEditUpdate(oldValue, newValue);
+
+      expect(formatter.isNegative, false);
+    },
+  );
 }
