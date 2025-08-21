@@ -30,7 +30,7 @@ and the Flutter guide for
 Based on [currency_picker](https://pub.dev/packages/currency_picker) and 
 [currency_text_input_formatter](https://pub.dev/packages/currency_text_input_formatter) packages.
 
-- 🚀 Supports 161+ global currencies (1.2MB) with crisp, scalable SVG flags.
+- 🚀 Supports 160 global currencies with crisp, scalable SVG flags (1.2MB).
 - 🌍 Built-in base locales for all default currencies
 - 🔌 Seamless data loading service designed for easy dependency injection and clean architecture
 - ✨ Extensions for loading images, empty placeholders, and emojis
@@ -44,7 +44,7 @@ Based on [currency_picker](https://pub.dev/packages/currency_picker) and
 Add the package to your pubspec.yaml:
 
  ```yaml
- currency_picker_plus: ^1.0.0
+ currency_picker_plus: ^1.1.2
  ```
 
 ## Usage
@@ -323,9 +323,9 @@ Parameters:
 
 ## Additional information
 
-- Enabled Currencies (161):
-USD, EUR, JPY, GBP, AUD, CAD, CHF, CNY, HKD, NZD, SEK, KRW, SGD, NOK, MXN, INR, RUB, ZAR, TRY, BRL, TWD, DKK, PLN, THB, IDR, HUF, CZK, ILS, CLP, PHP, AED, COP, SAR, MYR, RON, AFN, ALL, DZD, AOA, ARS, AMD, AZN, BHD, BDT, BBD, BYN, BZD, BMD, BTN, BOB, BAM, BWP, BND, BGN, BIF, KHR, KYD, XAF, XOF, CDF, CRC, CUP, DOP, EGP, ETB, GMD, GEL, GHS, GTQ, GNF, GYD, HTG, ISK, IQD, JMD, JOD, KZT, KES, KWD, KGS, LAK, LBP, LRD, MKD, MGA, MWK, MVR, MUR, MDL, MNT, MAD, MZN, MMK, NAD, NPR, NIO, NGN, OMR, PKR, PGK, PYG, PEN, QAR, RWF, RSD, SCR, SOS, LKR, SRD, SYP, TZS, TOP, TTD, TND, UGX, UAH, UZS, UYU, VEF, VND, YER, ZMW, ZWL, IRR, LYD, TJS, TMT, AWG, BSD, CVE, XPF, KMF, HRK, DJF, XCD, ERN, FKP, FJD, GIP, GGP, HNL, IMP, JEP, LSL, MOP, MRU, ANG, PAB, SHP, WST, STN, SLE, SBD, SSP, XDR, SDG, SZL, VUV, VES, CLF, KPW.
+- Enabled Currencies (160):
+USD, EUR, JPY, GBP, AUD, CAD, CHF, CNY, HKD, NZD, SEK, KRW, SGD, NOK, MXN, INR, RUB, ZAR, TRY, BRL, TWD, DKK, PLN, THB, IDR, HUF, CZK, ILS, CLP, PHP, AED, COP, SAR, MYR, RON, AFN, ALL, DZD, AOA, ARS, AMD, AZN, BHD, BDT, BBD, BYN, BZD, BMD, BTN, BOB, BAM, BWP, BND, BGN, BIF, KHR, KYD, XAF, XOF, CDF, CRC, CUP, DOP, EGP, ETB, GMD, GEL, GHS, GTQ, GNF, GYD, HTG, ISK, IQD, JMD, JOD, KZT, KES, KWD, KGS, LAK, LBP, LRD, MKD, MGA, MWK, MVR, MUR, MDL, MNT, MAD, MZN, MMK, NAD, NPR, NIO, NGN, OMR, PKR, PGK, PYG, PEN, QAR, RWF, RSD, SCR, SOS, LKR, SRD, SYP, TZS, TOP, TTD, TND, UGX, UAH, UZS, UYU, VND, YER, ZMW, ZWL, IRR, LYD, TJS, TMT, AWG, BSD, CVE, XPF, KMF, HRK, DJF, XCD, ERN, FKP, FJD, GIP, GGP, HNL, IMP, JEP, LSL, MOP, MRU, ANG, PAB, SHP, WST, STN, SLE, SBD, SSP, XDR, SDG, SZL, VUV, VES, CLF, KPW.
 
-- Disabled Currencies (13):
-SPL, FOK, KID, TVD, BYR, CUC, LTL, LVL, SVC, MRO, STD, SLE, ZWG.
+- Disabled Currencies (14):
+SPL, FOK, KID, TVD, BYR, CUC, LTL, LVL, SVC, MRO, STD, SLE, ZWG, VEF.
 - **Note:** SSP may not be compatible with **currency API's**. Disabled currencies are excluded from the Service because they were replaced, redenominated, or became obsolete before 2025.

@@ -698,7 +698,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "dz-BT",
+    locale: "en_IN",
   ),
   Currency(
     code: "BOB",
@@ -782,7 +782,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ",",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "rn-BI",
+    locale: "fr-BI",
   ),
   Currency(
     code: "KHR",
@@ -1231,7 +1231,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: false,
-    locale: "dv-MV",
+    locale: "en-MV",
   ),
   Currency(
     code: "MUR",
@@ -1470,7 +1470,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: true,
-    locale: "rw-RW",
+    locale: "fr-RW",
   ),
   Currency(
     code: "RSD",
@@ -1512,7 +1512,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: true,
-    locale: "so-SO",
+    locale: "en-US",
   ),
   Currency(
     code: "LKR",
@@ -1582,7 +1582,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "to-TO",
+    locale: "en-TO",
   ),
   Currency(
     code: "TTD",
@@ -1667,20 +1667,6 @@ final List<Currency> currencies = const [
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
     locale: "es-UY",
-  ),
-  Currency(
-    code: "VEF",
-    name: "Venezuela Bolívar",
-    symbol: "Bs",
-    flag: "VE",
-    decimalDigits: 2,
-    number: 937,
-    namePlural: "Venezuelan bolívars",
-    thousandsSeparator: ".",
-    decimalSeparator: ",",
-    spaceBetweenAmountAndSymbol: true,
-    symbolOnLeft: true,
-    locale: "es-VE",
   ),
   Currency(
     code: "VND",
@@ -1778,7 +1764,7 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: true,
     symbolOnLeft: true,
-    locale: "tg-TJ",
+    locale: "en-TJ",
   ),
   Currency(
     code: "TMT",
@@ -1792,9 +1778,8 @@ final List<Currency> currencies = const [
     decimalSeparator: ".",
     spaceBetweenAmountAndSymbol: false,
     symbolOnLeft: false,
-    locale: "tk-TM",
+    locale: "en-TM",
   ),
-
   Currency(
     code: "AWG",
     name: "Aruban Florin",
@@ -2134,7 +2119,7 @@ final List<Currency> currencies = const [
     thousandsSeparator: ",",
     symbolOnLeft: true,
     spaceBetweenAmountAndSymbol: false,
-    locale: "sm-WS",
+    locale: "en-WS",
   ),
 
   Currency(
@@ -2254,13 +2239,13 @@ final List<Currency> currencies = const [
     thousandsSeparator: ",",
     symbolOnLeft: true,
     spaceBetweenAmountAndSymbol: false,
-    locale: "bi-VU",
+    locale: "en-VU",
   ),
 
   Currency(
     code: "VES",
     name: "Venezuelan Bolívar",
-    symbol: "Bs.",
+    symbol: "Bs.S",
     flag: "VE",
     number: 928,
     decimalDigits: 2,

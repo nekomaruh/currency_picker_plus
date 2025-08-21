@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-08-18 12:06:10</td>
+            <td class="headerValue">2025-08-20 21:20:01</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -64,20 +64,20 @@
 <span id="L2"><span class="lineNum">       2</span>              : import 'currency.dart';</span>
 <span id="L3"><span class="lineNum">       3</span>              : </span>
 <span id="L4"><span class="lineNum">       4</span>              : class CurrencyService {</span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          10 :   CurrencyService._()</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">          10 :     : _currencies = currencies,</span></span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          10 :       _byCode = {</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          40 :         for (var currency in currencies) currency.code.toUpperCase(): currency,</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          11 :   CurrencyService._()</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">          11 :     : _currencies = currencies,</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          11 :       _byCode = {</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          44 :         for (var currency in currencies) currency.code.toUpperCase(): currency,</span></span>
 <span id="L9"><span class="lineNum">       9</span>              :       };</span>
 <span id="L10"><span class="lineNum">      10</span>              : </span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          30 :   static final CurrencyService instance = CurrencyService._();</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          33 :   static final CurrencyService instance = CurrencyService._();</span></span>
 <span id="L12"><span class="lineNum">      12</span>              : </span>
 <span id="L13"><span class="lineNum">      13</span>              :   final List&lt;Currency&gt; _currencies;</span>
 <span id="L14"><span class="lineNum">      14</span>              :   final Map&lt;String, Currency&gt; _byCode;</span>
 <span id="L15"><span class="lineNum">      15</span>              : </span>
 <span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           4 :   List&lt;Currency&gt; getAll() =&gt; _currencies;</span></span>
 <span id="L17"><span class="lineNum">      17</span>              : </span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          36 :   Currency? findByCode(String code) =&gt; _byCode[code.toUpperCase()];</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          40 :   Currency? findByCode(String code) =&gt; _byCode[code.toUpperCase()];</span></span>
 <span id="L19"><span class="lineNum">      19</span>              : </span>
 <span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :   List&lt;Currency&gt; findCurrenciesByCode(List&lt;String&gt; codes) {</span></span>
 <span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           4 :     return codes.map(findByCode).nonNulls.toList();</span></span>
