@@ -380,4 +380,28 @@ void main() {
       expect(result3.selection.baseOffset, 1);
     },
   );
+
+  test('formatEditUpdate calls onChange callback with _newString', () {
+    String? changedValue;
+
+    final formatter = CurrencyFormatter.simpleCurrency(
+      locale: 'en_US',
+      name: 'USD',
+      decimalDigits: 2,
+      showSymbol: false,
+      onChange: (value) {
+        changedValue = value;
+      },
+    );
+
+    final oldValue = const TextEditingValue(text: '123');
+    final newValue = const TextEditingValue(text: '456');
+
+    formatter.formatEditUpdate(oldValue, newValue);
+
+    expect(changedValue, isNotNull);
+    expect(changedValue, isA<String>());
+    expect(changedValue, contains('4.56'));
+  });
+  
 }
