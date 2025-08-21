@@ -403,5 +403,28 @@ void main() {
     expect(changedValue, isA<String>());
     expect(changedValue, contains('4.56'));
   });
-  
+
+  group('formatDecimalStringWithSeparators', () {
+    test('truncates decimal part if longer than decimalDigits', () {
+      final result = formatDecimalStringWithSeparators(
+        '123.4567',
+        decimalDigits: 2,
+        decimalSeparator: '.',
+        thousandSeparator: ',',
+      );
+
+      expect(result, '123.45');
+    });
+
+    test('pads decimal part if shorter than decimalDigits', () {
+      final result = formatDecimalStringWithSeparators(
+        '123.4',
+        decimalDigits: 3,
+        decimalSeparator: '.',
+        thousandSeparator: ',',
+      );
+
+      expect(result, '123.400');
+    });
+  });
 }
